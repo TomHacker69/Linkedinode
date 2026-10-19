@@ -1,0 +1,251 @@
+/* ==========================================================================
+   LinkedIn Theme Studio - Dynamic Theme Engine
+   Applies custom palette variables and structural overrides to LinkedIn
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Theme Token Definitions
+   -------------------------------------------------------------------------- */
+
+/* 1. OLED Pitch Black */
+html[data-theme-enabled="true"][data-linkedin-theme="oled-black"] {
+  --lts-canvas: #000000;
+  --lts-container: #0a0a0a;
+  --lts-container-elevated: #121212;
+  --lts-border: #1e1e1e;
+  --lts-border-subtle: #141414;
+  --lts-text: #f5f5f5;
+  --lts-text-muted: #8e8e8e;
+  --lts-input-bg: #141414;
+  --lts-nav-bg: rgba(8, 8, 8, 0.92);
+  --lts-accent-default: #38bdf8;
+}
+
+/* 2. Midnight Navy / Cool Blue */
+html[data-theme-enabled="true"][data-linkedin-theme="midnight-blue"] {
+  --lts-canvas: #070c18;
+  --lts-container: #0d162b;
+  --lts-container-elevated: #13203c;
+  --lts-border: #1c2d52;
+  --lts-border-subtle: #15223e;
+  --lts-text: #e2e8f0;
+  --lts-text-muted: #7f95b7;
+  --lts-input-bg: #0f1a33;
+  --lts-nav-bg: rgba(10, 17, 34, 0.92);
+  --lts-accent-default: #38bdf8;
+}
+
+/* 3. Cyberpunk Neon */
+html[data-theme-enabled="true"][data-linkedin-theme="cyberpunk-neon"] {
+  --lts-canvas: #0a0614;
+  --lts-container: #120b24;
+  --lts-container-elevated: #1a1033;
+  --lts-border: #2c1652;
+  --lts-border-subtle: #21113d;
+  --lts-text: #fce7f3;
+  --lts-text-muted: #b08ecc;
+  --lts-input-bg: #190e32;
+  --lts-nav-bg: rgba(15, 9, 31, 0.94);
+  --lts-accent-default: #ec4899;
+}
+
+/* 4. Emerald Teal / Mint */
+html[data-theme-enabled="true"][data-linkedin-theme="emerald-teal"] {
+  --lts-canvas: #041210;
+  --lts-container: #09201c;
+  --lts-container-elevated: #0e2d27;
+  --lts-border: #154239;
+  --lts-border-subtle: #0f302a;
+  --lts-text: #e6f7f2;
+  --lts-text-muted: #6ea99a;
+  --lts-input-bg: #0c2923;
+  --lts-nav-bg: rgba(6, 22, 19, 0.94);
+  --lts-accent-default: #10b981;
+}
+
+/* 5. Dracula / Nord Slate */
+html[data-theme-enabled="true"][data-linkedin-theme="dracula-nord"] {
+  --lts-canvas: #1e1e2e;
+  --lts-container: #252538;
+  --lts-container-elevated: #2e2e46;
+  --lts-border: #383857;
+  --lts-border-subtle: #2c2c45;
+  --lts-text: #cdd6f4;
+  --lts-text-muted: #9399b2;
+  --lts-input-bg: #222234;
+  --lts-nav-bg: rgba(30, 30, 46, 0.92);
+  --lts-accent-default: #cba6f7;
+}
+
+/* 6. Minimalist Clean Light */
+html[data-theme-enabled="true"][data-linkedin-theme="minimalist-light"] {
+  --lts-canvas: #f8fafc;
+  --lts-container: #ffffff;
+  --lts-container-elevated: #ffffff;
+  --lts-border: #e2e8f0;
+  --lts-border-subtle: #f1f5f9;
+  --lts-text: #0f172a;
+  --lts-text-muted: #64748b;
+  --lts-input-bg: #f1f5f9;
+  --lts-nav-bg: rgba(255, 255, 255, 0.92);
+  --lts-accent-default: #2563eb;
+}
+
+/* --------------------------------------------------------------------------
+   Dynamic LinkedIn Native Token Mapping
+   Overrides LinkedIn's internal CSS design variables
+   -------------------------------------------------------------------------- */
+html[data-theme-enabled="true"] {
+  --color-background-canvas: var(--lts-canvas) !important;
+  --color-background-container: var(--lts-container) !important;
+  --color-background-container-tint: var(--lts-container) !important;
+  --color-background-new: var(--lts-container-elevated) !important;
+  --color-background-faint: var(--lts-container-elevated) !important;
+  --color-text: var(--lts-text) !important;
+  --color-text-low-emphasis: var(--lts-text-muted) !important;
+  --color-border-faint: var(--lts-border-subtle) !important;
+  --color-border-low-emphasis: var(--lts-border) !important;
+  --color-icon: var(--lts-text-muted) !important;
+  --color-icon-nav: var(--lts-text-muted) !important;
+
+  --color-brand: var(--lts-custom-accent, var(--lts-accent-default)) !important;
+  --color-brand-accent: var(--lts-custom-accent, var(--lts-accent-default)) !important;
+  --color-brand-active: var(--lts-custom-accent, var(--lts-accent-default)) !important;
+  --color-action: var(--lts-custom-accent, var(--lts-accent-default)) !important;
+
+  --voyager-color-background-canvas: var(--lts-canvas) !important;
+  --voyager-color-background-container: var(--lts-container) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Structural Element Overrides
+   -------------------------------------------------------------------------- */
+html[data-theme-enabled="true"] body,
+html[data-theme-enabled="true"] .scaffold-layout,
+html[data-theme-enabled="true"] .theme--light,
+html[data-theme-enabled="true"] .theme--dark {
+  background-color: var(--lts-canvas) !important;
+  color: var(--lts-text) !important;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Global Navigation Bar */
+html[data-theme-enabled="true"] .global-nav,
+html[data-theme-enabled="true"] .global-nav__content {
+  background-color: var(--lts-nav-bg) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border-bottom: 1px solid var(--lts-border) !important;
+}
+
+html[data-theme-enabled="true"] .global-nav__primary-link,
+html[data-theme-enabled="true"] .global-nav__primary-link-text {
+  color: var(--lts-text-muted) !important;
+}
+
+html[data-theme-enabled="true"] .global-nav__primary-link:hover,
+html[data-theme-enabled="true"] .global-nav__primary-item--active .global-nav__primary-link {
+  color: var(--lts-custom-accent, var(--lts-accent-default)) !important;
+}
+
+html[data-theme-enabled="true"] .global-nav__primary-item--active .global-nav__primary-link-text {
+  color: var(--lts-custom-accent, var(--lts-accent-default)) !important;
+}
+
+/* Search Bar in Header */
+html[data-theme-enabled="true"] .search-global-typeahead__input {
+  background-color: var(--lts-input-bg) !important;
+  border: 1px solid var(--lts-border) !important;
+  color: var(--lts-text) !important;
+}
+
+/* Main Cards & Containers */
+html[data-theme-enabled="true"] .artdeco-card,
+html[data-theme-enabled="true"] .feed-shared-update-v2,
+html[data-theme-enabled="true"] .feed-identity-module,
+html[data-theme-enabled="true"] .share-box-feed-entry,
+html[data-theme-enabled="true"] .scaffold-layout__sidebar > section,
+html[data-theme-enabled="true"] .scaffold-layout__aside > section,
+html[data-theme-enabled="true"] .msg-overlay-bubble-header,
+html[data-theme-enabled="true"] .msg-overlay-list-bubble,
+html[data-theme-enabled="true"] .artdeco-dropdown__content,
+html[data-theme-enabled="true"] .artdeco-modal {
+  background-color: var(--lts-container) !important;
+  border: 1px solid var(--lts-border) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22) !important;
+  border-radius: 10px !important;
+}
+
+/* Feed Post Text & Actors */
+html[data-theme-enabled="true"] .feed-shared-update-v2__description,
+html[data-theme-enabled="true"] .update-components-text,
+html[data-theme-enabled="true"] .update-components-actor__name,
+html[data-theme-enabled="true"] .feed-shared-actor__name {
+  color: var(--lts-text) !important;
+}
+
+html[data-theme-enabled="true"] .update-components-actor__description,
+html[data-theme-enabled="true"] .update-components-actor__sub-description,
+html[data-theme-enabled="true"] .feed-shared-actor__description,
+html[data-theme-enabled="true"] .feed-shared-actor__sub-description {
+  color: var(--lts-text-muted) !important;
+}
+
+/* Interactive Action Buttons & Badges */
+html[data-theme-enabled="true"] .artdeco-button--primary {
+  background-color: var(--lts-custom-accent, var(--lts-accent-default)) !important;
+  border-color: var(--lts-custom-accent, var(--lts-accent-default)) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme-enabled="true"] .artdeco-button--secondary {
+  border-color: var(--lts-custom-accent, var(--lts-accent-default)) !important;
+  color: var(--lts-custom-accent, var(--lts-accent-default)) !important;
+}
+
+html[data-theme-enabled="true"] .artdeco-button--muted {
+  color: var(--lts-text-muted) !important;
+}
+
+html[data-theme-enabled="true"] .artdeco-button--muted:hover {
+  background-color: var(--lts-container-elevated) !important;
+  color: var(--lts-text) !important;
+}
+
+/* Comment Box & Rich Text Editors */
+html[data-theme-enabled="true"] .comments-comment-box__form-container,
+html[data-theme-enabled="true"] .ql-editor,
+html[data-theme-enabled="true"] .comments-comment-item__main-content {
+  background-color: var(--lts-input-bg) !important;
+  color: var(--lts-text) !important;
+  border-color: var(--lts-border) !important;
+}
+
+/* Links & Accents */
+html[data-theme-enabled="true"] a.app-aware-link:not(.global-nav__primary-link) {
+  color: var(--lts-custom-accent, var(--lts-accent-default)) !important;
+}
+
+/* Messaging Dock at bottom right */
+html[data-theme-enabled="true"] .msg-overlay-conversation-bubble {
+  background-color: var(--lts-container) !important;
+  border: 1px solid var(--lts-border) !important;
+}
+
+html[data-theme-enabled="true"] .msg-overlay-conversation-bubble--header {
+  border-bottom: 1px solid var(--lts-border) !important;
+}
+
+html[data-theme-enabled="true"] .msg-s-message-list-container {
+  background-color: var(--lts-canvas) !important;
+}
+
+html[data-theme-enabled="true"] .msg-s-message-group__meta {
+  color: var(--lts-text-muted) !important;
+}
+
+html[data-theme-enabled="true"] .msg-s-event-listitem__bubble {
+  background-color: var(--lts-container-elevated) !important;
+  color: var(--lts-text) !important;
+  border: 1px solid var(--lts-border-subtle) !important;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Theme Studio</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Theme Studio</h1>
+          <span class="brand-badge" id="tabStatus">LinkedIn Ready</span>
+        </div>
+      </div>
+
+      <!-- Master Switch -->
+      <label class="switch" title="Toggle themes on/off">
+        <input type="checkbox" id="masterToggle" checked>
+        <span class="slider round"></span>
+      </label>
+    </header>
+
+    <!-- Main Content Body -->
+    <main class="app-content" id="appContent">
+      <!-- Section: Themes -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Color Palette</h2>
+          <span class="section-subtitle">Select a curated theme</span>
+        </div>
+        <div class="theme-grid" id="themeGrid">
+          <!-- Dynamic theme cards rendered via popup.js -->
+        </div>
+      </section>
+
+      <!-- Section: Custom Accent -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Accent Color</h2>
+          <button class="btn-text-reset" id="resetAccentBtn" title="Reset to current theme default">Reset</button>
+        </div>
+        <div class="accent-container">
+          <div class="color-picker-wrapper">
+            <input type="color" id="accentColorPicker" value="#38bdf8">
+            <span class="color-hex-label" id="accentHexLabel">#38bdf8</span>
+          </div>
+          <div class="swatches" id="accentSwatches">
+            <!-- Preset quick color dots rendered via popup.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Declutter & Focus -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Focus & Declutter</h2>
+          <span class="section-subtitle">Remove distractions</span>
+        </div>
+        <div class="declutter-list">
+          <label class="toggle-row">
+            <div class="toggle-info">
+              <span class="toggle-label">Hide Promoted Posts</span>
+              <span class="toggle-desc">Collapse sponsored ads in feed</span>
+            </div>
+            <span class="switch small">
+              <input type="checkbox" id="toggleHidePromoted">
+              <span class="slider round"></span>
+            </span>
+          </label>
+
+          <label class="toggle-row">
+            <div class="toggle-info">
+              <span class="toggle-label">Hide LinkedIn News</span>
+              <span class="toggle-desc">Remove right-hand sidebar widget</span>
+            </div>
+            <span class="switch small">
+              <input type="checkbox" id="toggleHideNews">
+              <span class="slider round"></span>
+            </span>
+          </label>
+
+          <label class="toggle-row">
+            <div class="toggle-info">
+              <span class="toggle-label">Hide Suggested Follows</span>
+              <span class="toggle-desc">Remove "Add to your feed" cards</span>
+            </div>
+            <span class="switch small">
+              <input type="checkbox" id="toggleHideSuggested">
+              <span class="slider round"></span>
+            </span>
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <span>LinkedIn Theme Studio v1.0</span>
+      <span class="live-dot" title="Live Sync Active"></span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

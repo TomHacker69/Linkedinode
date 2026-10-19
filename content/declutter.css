@@ -1,0 +1,33 @@
+/* ==========================================================================
+   LinkedIn Theme Studio - Declutter & Focus Mode
+   Selectively collapses sponsored feed clutter and distracting sidebars
+   ========================================================================== */
+
+/* 1. Hide Promoted / Sponsored Posts */
+html[data-hide-promoted="true"] .feed-shared-update-v2[data-lts-sponsored="true"],
+html[data-hide-promoted="true"] .feed-shared-update-v2:has(.feed-shared-actor__sub-description:has([aria-label*="Promoted"])),
+html[data-hide-promoted="true"] .feed-shared-update-v2:has(.feed-shared-actor__sub-description:has([aria-label*="Sponsored"])),
+html[data-hide-promoted="true"] .feed-shared-update-v2:has([data-view-name*="promoted"]),
+html[data-hide-promoted="true"] .feed-shared-update-v2:has([data-feed-unit-type="ad"]),
+html[data-hide-promoted="true"] div[data-feed-unit-type="ad"],
+html[data-hide-promoted="true"] .feed-shared-update-v2:has(.update-components-actor__sub-description:has(span[aria-label*="Promoted"])),
+html[data-hide-promoted="true"] .feed-shared-update-v2:has(.update-components-actor__sub-description:has(span[aria-label*="Sponsored"])) {
+  display: none !important;
+}
+
+/* 2. Hide LinkedIn News Sidebar */
+html[data-hide-news="true"] .news-module,
+html[data-hide-news="true"] [aria-label*="LinkedIn News"],
+html[data-hide-news="true"] aside.scaffold-layout__aside section:has([href*="/news/"]),
+html[data-hide-news="true"] aside.scaffold-layout__aside section:has(#feed-news-module),
+html[data-hide-news="true"] .feed-right-rail__module:has([href*="/news/"]) {
+  display: none !important;
+}
+
+/* 3. Hide Suggested Follows ("Add to your feed") */
+html[data-hide-suggested="true"] .feed-follows-module,
+html[data-hide-suggested="true"] aside.scaffold-layout__aside section:has([data-view-name*="follow-recommendation"]),
+html[data-hide-suggested="true"] aside.scaffold-layout__aside section:has([href*="/feed/update/"]):not(:has([href*="/news/"])),
+html[data-hide-suggested="true"] .feed-shared-update-v2:has(.feed-shared-interest-pack) {
+  display: none !important;
+}
